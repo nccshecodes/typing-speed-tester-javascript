@@ -52,7 +52,7 @@ function start() {
 
 // Reset everything:
 function reset() {
-  console.log("reset button has been presssed.")
+  console.log("reset button has been pressed.")
 }
 
 
