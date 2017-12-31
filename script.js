@@ -35,7 +35,7 @@ function runTimer(){
 // Match the text entered with the provided text on the page:
 function spellCheck() {
   let textEntered = testArea.value;
-  // substring 1st argument is where in array we want to satrt, 2nd argument is how many characters to return.
+  // substring 1st argument is where in array we want to start, 2nd argument is how many characters to return.
   let originTextMatch = originText.substring(0, textEntered.length);
   if (textEntered == originText) {
     testWrapper.style.borderColor = "#429890"; // green
