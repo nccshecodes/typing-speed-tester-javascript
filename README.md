@@ -35,6 +35,9 @@ setInterval() first argument is the function to execute, second argument is the 
 
 The timer counts up from zero, counting up to 100 in the hundredths, up to 60 in the seconds and up to 60 in the minutes (00:00:00).
 
+By assigning the setInterval() function to a global variable `interval` we can then stop the timer by using `clearInterval(interval)` when the test is complete in the spellCheck() function, or, when the reset() function is executed.
+
+To ensure the interval doesn't start over when the text input area is cleared, an additional global variable `timerRunning` is created  and is set to false by default. The setInterval()function is only triggered if the text input area is empty **and** timerRunning value is false. When the timer is first started, this value is set to true.
 
 
 ### spellCheck function
