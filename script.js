@@ -5,6 +5,8 @@ const resetButton = document.querySelector("#reset");
 const theTimer = document.querySelector(".timer");
 
 var timer = [0,0,0,0]; // minutes, seconds, hundredths of seconds, thousands of seconds
+var interval; //declare interval as global variable so that setInterval function can be assigned to it and then effectively stopped when test is complete.
+var timerRunning = false; // used to make sure timer doesn't start again when text is cleared.
 
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 // helper function
@@ -38,6 +40,8 @@ function spellCheck() {
   // substring 1st argument is where in array we want to start, 2nd argument is how many characters to return.
   let originTextMatch = originText.substring(0, textEntered.length);
   if (textEntered == originText) {
+    // stop the timer
+    clearInterval(interval);
     testWrapper.style.borderColor = "#429890"; // green
   } else {
     if (textEntered == originTextMatch) {
@@ -53,15 +57,17 @@ function start() {
   // make sure detecting very first keypress, detect how much content currently sits inside box
   // timer only starts when content length is zero ie. empty.
   let textEnteredLength = testArea.value.length
-  if (textEnteredLength === 0) {
+  if (textEnteredLength === 0 && !timerRunning) {
+    timerRunning = true; // stops setInterval running again if text is cleared.
     // first arg which function to call, second arg time delay between each call
     // 10 = one hundredth of a second (1000 is every second)
-    setInterval(runTimer, 10);
+    interval = setInterval(runTimer, 10);
   }
 }
 
 // Reset everything:
 function reset() {
+
   console.log("reset button has been pressed.")
 }
 
