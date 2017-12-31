@@ -24,7 +24,7 @@ To detect when the reset button has been clicked and trigger the reset function 
 
 
 
-### Timer
+### runTimer function
 
 See MDN Docs [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval)
 
@@ -34,3 +34,16 @@ setInterval() first argument is the function to execute, second argument is the 
 `setInterval(runTimer, 10);`
 
 The timer counts up from zero, counting up to 100 in the hundredths, up to 60 in the seconds and up to 60 in the minutes (00:00:00).
+
+
+
+### spellCheck function
+
+See MDN docs
+[str.substring()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
+
+We can't just test the entire string as the user types as this will never be correct until the entire string has been typed. So, we have three conditions to test for:
+
+1. `textEntered == originText` tests if the user entered text matches the test text exactly and if true, applies a green border to the text input box.
+2. `textEntered == originTextMatch` tests if the user text entered so far matches the text test ie. checks accuracy as the user types. If true, a blue border is applied to the text input box.
+3. If the above are both false, then an orange border is applied to the test input box to indicate that there's a mistake.
