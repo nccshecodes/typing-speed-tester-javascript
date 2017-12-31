@@ -1,6 +1,6 @@
 const testWrapper = document.querySelector(".test-wrapper");
-const testArea = document.querySelector("#test-area");
-const originText = document.querySelector("#origin-text p").innerHTML;
+const testArea = document.querySelector("#test-area"); // user entered text
+const originText = document.querySelector("#origin-text p").innerHTML; // test text to match
 const resetButton = document.querySelector("#reset");
 const theTimer = document.querySelector(".timer");
 
@@ -35,7 +35,17 @@ function runTimer(){
 // Match the text entered with the provided text on the page:
 function spellCheck() {
   let textEntered = testArea.value;
-  console.log(textEntered);
+  // substring 1st argument is where in array we want to satrt, 2nd argument is how many characters to return.
+  let originTextMatch = originText.substring(0, textEntered.length);
+  if (textEntered == originText) {
+    testWrapper.style.borderColor = "#429890"; // green
+  } else {
+    if (textEntered == originTextMatch) {
+      testWrapper.style.borderColor = "#65CCF3"; // blue
+    } else {
+      testWrapper.style.borderColor = "#E95D0F"; // orange
+    }
+  }
 }
 
 // Start the timer:
