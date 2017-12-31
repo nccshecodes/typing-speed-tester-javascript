@@ -67,8 +67,13 @@ function start() {
 
 // Reset everything:
 function reset() {
-
-  console.log("reset button has been pressed.")
+  clearInterval(interval);
+  interval = null; // so that when reassigned setInterval() it doesnt set up a new interval with a new index number to save resources.
+  timer = [0,0,0,0];
+  timerRunning = false;
+  testArea.value = "";
+  testWrapper.style.borderColor = "grey";
+  theTimer.innerHTML = "00:00:00";
 }
 
 
